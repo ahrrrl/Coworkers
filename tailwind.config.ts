@@ -1,6 +1,8 @@
 import type { Config } from 'tailwindcss';
+import tailwindcssAnimate from 'tailwindcss-animate';
 
 export default {
+  darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,7 +11,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // 1) 브랜드 컬러
         brand: {
           primary: '#10B981',
           secondary: '#34D399',
@@ -19,8 +20,6 @@ export default {
             to: '#A3E635',
           },
         },
-
-        // 2) 포인트 컬러
         point: {
           purple: '#A855F7',
           blue: '#3B82F6',
@@ -30,29 +29,14 @@ export default {
           orange: '#F97316',
           yellow: '#EAB308',
         },
-
-        // 3) 배경 컬러
-        background: {
-          primary: '#0F172A',
-          secondary: '#1E293B',
-          tertiary: '#334155',
-          inverse: '#FFFFFF',
-        },
-
-        // 4) 인터랙션 컬러
+        background: 'hsl(var(--background))',
         interaction: {
           inactive: '#94A3B8',
           hover: '#059669',
           pressed: '#047857',
           focus: '#10B981',
         },
-
-        // 5) 테두리
-        border: {
-          primary: 'rgba(248, 250, 252, 0.5)', // 50% 투명도
-        },
-
-        // 6) 텍스트
+        border: 'hsl(var(--border))',
         text: {
           primary: '#F8FAFC',
           secondary: '#CBD5E1',
@@ -61,20 +45,59 @@ export default {
           inverse: '#FFFFFF',
           disabled: '#94A3B8',
         },
-
-        // 7) 상태 컬러
         status: {
           danger: '#DC2626',
         },
-
-        // 8) 아이콘 컬러
         icon: {
           primary: '#64748B',
           inverse: '#F8FAFC',
           brand: '#10B981',
         },
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        chart: {
+          '1': 'hsl(var(--chart-1))',
+          '2': 'hsl(var(--chart-2))',
+          '3': 'hsl(var(--chart-3))',
+          '4': 'hsl(var(--chart-4))',
+          '5': 'hsl(var(--chart-5))',
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
